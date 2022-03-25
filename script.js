@@ -13,6 +13,8 @@ function seeDinos (a, ...b){
 }
 
 seeDinos(...jPDinos);
+// or
+seeDinos( `Velociraptors`, `Tyrannosaurus Rex`, `Dilophosaurus`);
 
 console.log(`=====================`);
 
@@ -24,10 +26,18 @@ const jpCharacters = {
 };
 
 // 2b
-seeCharacters = (a) => console.log(a);
+// seeCharacters = (a) => console.log(a);
 
+// seeCharacters(jpCharacters.ellieSattler);
+// nope...
 
-seeCharacters(jpCharacters.ellieSattler);
+seeCharacters = ({ellieSattler}) => {
+    console.log(ellieSattler);
+}
+// or
+// seeCharacters = ({ellieSattler}) => console.log(ellieSattler);
+
+seeCharacters(jpCharacters);
 
 // BONUS
 // 3a
@@ -47,7 +57,31 @@ const jurassicParkMovies = [
 ];
 
 // 3b
-function seeJPMovies ({one, two, three}, {four, five, six}){
+// function seeJPMovies ({one, two, three}, {four, five, six}){
+//     console.log(one);
+//     console.log(two);
+//     console.log(three);
+//     console.log(four);
+//     console.log(five);
+//     console.log(six);
+// }
+// seeJPMovies(...jurassicParkMovies);
+
+// or
+
+// seeJPMovies = ({one, two, three}, {four, five, six}) => {
+//     console.log(one);
+//     console.log(two);
+//     console.log(three);
+//     console.log(four);
+//     console.log(five);
+//     console.log(six);
+// }
+// seeJPMovies(...jurassicParkMovies);
+
+// or
+
+function seeJPMovies ([{one, two, three}, {four, five, six}]){
     console.log(one);
     console.log(two);
     console.log(three);
@@ -55,5 +89,20 @@ function seeJPMovies ({one, two, three}, {four, five, six}){
     console.log(five);
     console.log(six);
 }
-seeJPMovies(...jurassicParkMovies);
+seeJPMovies(jurassicParkMovies);
+
+// or
+
+const [{one, two, three}, {four, five, six}] = jurassicParkMovies;
+const allMovies = [one, two, three, four, five, six];
+seeJPMovies = y => {
+    console.log(one);
+    console.log(two);
+    console.log(three);
+    console.log(four);
+    console.log(five);
+    console.log(six);
+}
+
+seeJPMovies(allMovies);
 
